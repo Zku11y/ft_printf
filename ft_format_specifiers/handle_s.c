@@ -1,11 +1,14 @@
 #include "libftprintf.h"
-#include "../../my_git/libft.h"
+#include "../libft_src/libft.h"
 
-void handle_s(va_list args, const char **content)
+int handle_s(va_list args, const char **content)
 {
 	char *str;
+	int size;
 
 	str = va_arg(args, char *);
-	write(1, str, ft_strlen(str));
+	size = ft_strlen(str);
+	write(1, str, size);
 	*(content) = *(content) + 1;
+	return (size);
 }

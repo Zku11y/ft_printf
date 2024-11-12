@@ -1,11 +1,14 @@
 #include "libftprintf.h"
-#include "../../my_git/libft.h"
+#include "../libft_src/libft.h"
 
-void handle_id(va_list args, const char **content)
+
+int handle_id(va_list args, const char **content)
 {
 	int a;
 
 	a = va_arg(args, int);
-	ft_putnbr_fd(a, 1);
+	putnbr(a);
 	*(content) = *(content) + 1;
+	return(nbr_size(a));
 }
+
