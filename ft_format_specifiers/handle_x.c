@@ -1,7 +1,7 @@
 #include "libftprintf.h"
 #include "../libft_src/libft.h"
 
-char *rev_str(char *str)
+static char *rev_str(char *str)
 {
     int i;
     int len;

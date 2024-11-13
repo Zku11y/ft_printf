@@ -4,5 +4,6 @@ all:
 	ft_format_specifiers/handle_u.c  libft_src/ft_strlen.c \
 	ft_format_specifiers/handle_s.c libft_src/ft_putnbr_fd.c ft_format_specifiers/nbr_size.c \
 	ft_format_specifiers/handle_x.c ft_format_specifiers/putnbr.c libft_src/ft_strdup.c \
-	libft_src/ft_putstr_fd.c
+	libft_src/ft_putstr_fd.c ft_format_specifiers/handle_p.c ft_format_specifiers/handle_flags.c \
+	libft_src/ft_strchr.c
 	@./a.out
