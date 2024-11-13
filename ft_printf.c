@@ -4,27 +4,21 @@
 int perc_flags(va_list args, const char **content)
 {
     // bonus flags check function :)
-	int size;
-	char str[] = "# +-0.";
-
-	size = 0;
 	*(content) = *(content) + 1;
-	if(ft_strchr(str, **content))
-		size = handle_flags(args, content);
 	if(**content == 'c')
-		return (handle_c(args, content) + size);  // c handle function
+		return (handle_c(args, content));  // c handle function
 	else if(**content == 's')
-		return (handle_s(args, content) + size);// s handle function
+		return (handle_s(args, content));// s handle function
 	else if(**content == '%')
-		return (handle_perc(args, content) + size);// % handle function
-	else if(**content == 'i' || **content == 'd')
-		return (handle_id(args, content) + size);	// i handle function
+		return (handle_perc(args, content));// % handle function
+	else if((**content == 'i' || **content == 'd') || ((**content == ' ' || **content == '+') && (*(*content + 1) == 'd' || *(*content + 1) == 'i')))
+		return (handle_id(args, content));	// i handle function
 	else if(**content == 'u')
-		return (handle_u(args, content) + size);// u handle function
-	else if(**content == 'x' || **content == 'X')
-		return (handle_x(args, content) + size); 	// x handle function
+		return (handle_u(args, content));// u handle function
+	else if((**content == 'x' || **content == 'X') || (**content == '#' && (*(*content + 1) == 'x' || *(*content + 1) == 'X')))
+		return (handle_x(args, content)); 	// x handle function
 	else if(**content == 'p')
-		return (handle_p(args, content) + size);	// p handle function
+		return (handle_p(args, content));	// p handle function
 	return(0);
 }
 
@@ -53,8 +47,8 @@ int ft_printf(const char *content, ...)
 #include <stdio.h>
 int main()
 {
-	int a = 4563;
+	int a = -4563;
 	void *ptr = NULL;
-    printf("%d\n", printf("this string %#x \n", a));
-    ft_printf("%d\n", ft_printf("this string %#x \n", a));
+    printf("%d\n", printf("this string % d \n", a));
+    ft_printf("%d\n", ft_printf("this string % d \n", a));
 }
