@@ -5,7 +5,7 @@ void	putnbr(int n)
 {
 	char	chr;
 	long	nbr;
-
+	
 	nbr = n;
 	if (nbr < 0)
 	{

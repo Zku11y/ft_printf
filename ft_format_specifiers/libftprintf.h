@@ -15,5 +15,4 @@ int     handle_x(va_list args, const char **content);
 int     handle_p(va_list args, const char **content);
 int     handle_id(va_list args, const char **content);
 int     handle_perc(va_list args, const char **content);
-int 	handle_flags(va_list args, const char **content);
 #endif
