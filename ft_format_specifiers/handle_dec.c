@@ -1,6 +1,5 @@
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include "../libft_src/libft.h"
-#include <stdio.h>
 
 int nbr_u_size(unsigned int a)
 {
@@ -40,4 +39,14 @@ int handle_u(va_list args, const char **content)
 	putnbr_u(a);
 	*(content) = *(content) + 1;
 	return(nbr_u_size(a));
+}
+
+int handle_id(va_list args, const char **content)
+{
+	int a;
+
+	a = va_arg(args, int);
+	putnbr(a);
+	*(content) = *(content) + 1;
+	return(nbr_size(a));
 }

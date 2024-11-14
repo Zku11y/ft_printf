@@ -1,28 +1,21 @@
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include "../libft_src/libft.h"
 
-
-char *rev_str(char *str)
+void rev_str(char *str)
 {
     int i;
     int len;
-    char *str_tmp;
 
     i = 0;
     len = ft_strlen(str) - 1;
-    str_tmp = malloc(len + 1);
-    if(str_tmp == NULL)
-        return (NULL);
-    while(str[i])
-        str_tmp[i++] = str[len--];
-    str_tmp[i] = '\0';
-    return (str_tmp);
+    while(len >= 0)
+        write(1, &str[len--], 1);
 }
 
 int long_to_hex(unsigned long nbr)
 {
     int size;
-    char *hex;
+    char hex[16];
     char str[20];
 
     size = 0;
@@ -31,7 +24,7 @@ int long_to_hex(unsigned long nbr)
         ft_putstr_fd("0x0", 1);
         return(3);    
     }
-    hex = ft_strdup("0123456789abcdef");
+    ft_strlcpy(hex, "0123456789abcdef", sizeof(hex) + 1);
     while(nbr > 0)
     {
         str[size] = hex[nbr % 16];
@@ -40,8 +33,32 @@ int long_to_hex(unsigned long nbr)
     }
     str[size] = '\0';
     ft_putstr_fd("0x", 1);
-    ft_putstr_fd(rev_str(str), 1);
+    rev_str(str);
     return (size + 2);
+}
+int handle_x(va_list args, const char **content)
+{
+    int size;
+    char hex[16];
+    char str[20];
+    unsigned int nbr;
+
+    size = 0;
+    nbr = va_arg(args, unsigned int);
+    if(**content == 'x')
+        ft_strlcpy(hex, "0123456789abcdef", sizeof(hex));
+    else
+        ft_strlcpy(hex, "0123456789ABCDEF", sizeof(hex));
+    while(nbr > 0)
+    {
+        str[size] = hex[nbr % 16];
+        nbr = nbr / 16;
+        size++;
+    }
+    str[size] = '\0';
+    rev_str(str);
+    *(content) = *(content) + 1;
+    return (size);
 }
 
 int handle_p(va_list args, const char **content)

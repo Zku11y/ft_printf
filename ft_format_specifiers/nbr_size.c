@@ -1,4 +1,4 @@
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include "../libft_src/libft.h"
 
 int nbr_size(int a)

@@ -1,4 +1,4 @@
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include "../libft_src/libft.h"
 
 void	putnbr(int n)
