@@ -24,6 +24,7 @@ $(NAME):$(OBJS)
 
 bonus: $(BOBJS)
 	ar rcs $(NAME) $(BOBJS)
+	toush 
 
 %.o: %.c libft.h
 	$(CC) $(FLAGS) -c $< -o $@
