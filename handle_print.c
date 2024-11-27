@@ -6,7 +6,7 @@
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 18:41:42 by mdakni            #+#    #+#             */
-/*   Updated: 2024/11/14 18:44:11 by mdakni           ###   ########.fr       */
+/*   Updated: 2024/11/27 15:21:21 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	handle_c(va_list args, const char **content)
 	return (1);
 }
 
-int	handle_perc(va_list args, const char **content)
+int	handle_perc(const char **content)
 {
 	char	a;
 

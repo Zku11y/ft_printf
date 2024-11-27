@@ -6,7 +6,7 @@
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 18:40:14 by mdakni            #+#    #+#             */
-/*   Updated: 2024/11/14 18:40:15 by mdakni           ###   ########.fr       */
+/*   Updated: 2024/11/27 15:24:02 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	perc_flags(va_list args, const char **content)
 	else if (**content == 's')
 		return (handle_s(args, content));
 	else if (**content == '%')
-		return (handle_perc(args, content));
+		return (handle_perc(content));
 	else if (**content == 'i' || **content == 'd')
 		return (handle_id(args, content));
 	else if (**content == 'u')

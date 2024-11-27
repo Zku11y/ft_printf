@@ -6,7 +6,7 @@
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 18:40:48 by mdakni            #+#    #+#             */
-/*   Updated: 2024/11/14 18:40:49 by mdakni           ###   ########.fr       */
+/*   Updated: 2024/11/27 15:21:36 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include "libft_src/libft.h"
 
 void	putnbr(int n);
 int		nbr_size(int a);
@@ -26,5 +25,10 @@ int		handle_u(va_list args, const char **content);
 int		handle_x(va_list args, const char **content);
 int		handle_p(va_list args, const char **content);
 int		handle_id(va_list args, const char **content);
-int		handle_perc(va_list args, const char **content);
+int		handle_perc(const char **content);
+void	ft_putnbr_fd(int n, int fd);
+size_t	ft_strlen(const char *s);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+void	ft_putstr_fd(char *s, int fd);
+char	*ft_strchr(const char *s, int c);
 #endif

@@ -1,8 +1,8 @@
-SRC = ft_printf.c libft_src/ft_strlen.c \
-	handle_print.c libft_src/ft_putnbr_fd.c nbr_size.c \
-	handle_hex.c putnbr.c libft_src/ft_strlcpy.c \
-	libft_src/ft_putstr_fd.c handle_dec.c \
-	libft_src/ft_strchr.c
+SRC = ft_printf.c ft_strlen.c \
+	handle_print.c ft_putnbr_fd.c nbr_size.c \
+	handle_hex.c putnbr.c ft_strlcpy.c \
+	ft_putstr_fd.c handle_dec.c \
+	ft_strchr.c
 
 
 NAME = libftprintf.a
@@ -14,6 +14,9 @@ all:$(NAME)
 
 $(NAME):$(OBJS)
 	ar rcs $(NAME) $(OBJS)
+
+%.o:%.c ft_printf.h
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)

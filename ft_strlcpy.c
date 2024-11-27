@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 08:19:29 by mdakni            #+#    #+#             */
-/*   Updated: 2024/11/05 21:54:14 by mdakni           ###   ########.fr       */
+/*   Created: 2024/10/26 05:34:41 by mdakni            #+#    #+#             */
+/*   Updated: 2024/11/27 15:13:48 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 
-	if (dst == src)
-		return (dst);
-	if (((unsigned char *)dst) < ((unsigned const char *)src))
+	if (dstsize > 0)
 	{
 		i = 0;
-		while (i < len)
+		while ((i < (dstsize - 1)) && (src[i]))
 		{
-			((unsigned char *)dst)[i] = ((unsigned const char *)src)[i];
+			dst[i] = src[i];
 			i++;
 		}
+		dst[i] = '\0';
 	}
-	else
-	{
-		i = len;
-		while (i > 0)
-		{
-			((unsigned char *)dst)[i - 1] = ((unsigned const char *)src)[i - 1];
-			i--;
-		}
-	}
-	return (dst);
+	return (ft_strlen(src));
 }

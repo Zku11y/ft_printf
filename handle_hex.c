@@ -6,7 +6,7 @@
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 18:40:58 by mdakni            #+#    #+#             */
-/*   Updated: 2024/11/14 18:42:52 by mdakni           ###   ########.fr       */
+/*   Updated: 2024/11/27 15:43:57 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	rev_str(char *str)
 int	long_to_hex(unsigned long nbr)
 {
 	int		size;
-	char	hex[16];
+	char	*hex;
 	char	str[20];
 
 	size = 0;
@@ -35,7 +35,7 @@ int	long_to_hex(unsigned long nbr)
 		ft_putstr_fd("0x0", 1);
 		return (3);
 	}
-	ft_strlcpy(hex, "0123456789abcdef", sizeof(hex) + 1);
+	hex = "0123456789abcdef";
 	while (nbr > 0)
 	{
 		str[size] = hex[nbr % 16];
@@ -48,25 +48,20 @@ int	long_to_hex(unsigned long nbr)
 	return (size + 2);
 }
 
-void	hex_fill(char *hex, const char **content)
-{
-	if (**content == 'x')
-		ft_strlcpy(hex, "0123456789abcdef", 17);
-	else
-		ft_strlcpy(hex, "0123456789ABCDEF", 17);
-	*(content) = *(content) + 1;
-}
-
 int	handle_x(va_list args, const char **content)
 {
 	int				size;
-	char			hex[16];
+	char			*hex;
 	char			str[20];
 	unsigned int	nbr;
 
 	size = 0;
 	nbr = va_arg(args, unsigned int);
-	hex_fill(hex, content);
+	if (**content == 'x')
+		hex = "0123456789abcdef";
+	else if (**content == 'X')
+		hex = "0123456789ABCDEF";
+	*(content) = *(content) + 1;
 	if (nbr == 0)
 	{
 		write(1, "0", 1);
