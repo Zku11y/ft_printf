@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 18:40:14 by mdakni            #+#    #+#             */
-/*   Updated: 2024/11/29 17:30:42 by mdakni           ###   ########.fr       */
+/*   Updated: 2024/11/28 12:09:05 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 int	perc_flags(va_list args, const char **content)
 {
+	flags flagsss;
+
+	flagsss = (flags){0};
 	*(content) = *(content) + 1;
+	flagsss = flag_check(content, flagsss);
 	if (**content == 'c')
 		return (handle_c(args, content));
 	else if (**content == 's')
@@ -22,11 +26,11 @@ int	perc_flags(va_list args, const char **content)
 	else if (**content == '%')
 		return (handle_perc(content));
 	else if (**content == 'i' || **content == 'd')
-		return (handle_id(args, content));
+		return (handle_id(args, content, flagsss));
 	else if (**content == 'u')
 		return (handle_u(args, content));
 	else if (**content == 'x' || **content == 'X')
-		return (handle_x(args, content));
+		return (handle_x(args, content, flagsss));
 	else if (**content == 'p')
 		return (handle_p(args, content));
 	return (0);
