@@ -1,12 +1,12 @@
 SRC = ft_printf.c ft_strlen.c \
 	handle_print.c ft_putnbr_fd.c nbr_size.c \
-	handle_hex.c putnbr.c ft_strlcpy.c \
+	handle_hex.c putnbr.c \
 	ft_putstr_fd.c handle_dec.c \
 	ft_strchr.c
 
 BSRC = bonus/ft_printf_bonus.c bonus/ft_strlen_bonus.c \
 	bonus/handle_print_bonus.c bonus/ft_putnbr_fd_bonus.c bonus/nbr_size_bonus.c \
-	bonus/handle_hex_bonus.c bonus/putnbr_bonus.c bonus/ft_strlcpy_bonus.c \
+	bonus/handle_hex_bonus.c bonus/putnbr_bonus.c \
 	bonus/ft_putstr_fd_bonus.c bonus/handle_dec_bonus.c \
 	bonus/ft_strchr_bonus.c bonus/ft_flag_check_bonus.c
 

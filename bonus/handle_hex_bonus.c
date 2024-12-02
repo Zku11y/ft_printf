@@ -6,7 +6,7 @@
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 18:40:58 by mdakni            #+#    #+#             */
-/*   Updated: 2024/11/29 14:59:46 by mdakni           ###   ########.fr       */
+/*   Updated: 2024/12/02 16:14:39 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,32 +48,32 @@ int	long_to_hex(unsigned long nbr)
 	return (size + 2);
 }
 
-char *hex_table(const char **content)
+char	*hex_table(const char **content)
 {
-	char *hex;
+	char	*hex;
 
 	hex = NULL;
 	if (**content == 'x')
 		hex = "0123456789abcdef";
 	else if (**content == 'X')
 		hex = "0123456789ABCDEF";
-	return hex;
+	return (hex);
 }
 
-int	handle_x(va_list args, const char **content, flags flags)
+int	handle_x(va_list args, const char **content, t_flags flags)
 {
-	char			*hex;
-	char			str[20];
+	char	*hex;
+	char	str[20];
 
 	unsigned int (nbr), (size);
 	size = 0;
 	nbr = va_arg(args, unsigned int);
 	hex = hex_table(content);
-	if(flags.tag)
+	if (flags.tag)
 	{
-		if(**content == 'x' && nbr > 0)
+		if (**content == 'x' && nbr > 0)
 			write(1, "0x", 2);
-		else if(**content == 'X' && nbr > 0)
+		else if (**content == 'X' && nbr > 0)
 			write(1, "0X", 2);
 	}
 	*(content) = *(content) + 1;
@@ -84,7 +84,7 @@ int	handle_x(va_list args, const char **content, flags flags)
 		str[size++] = hex[nbr % 16];
 		nbr = nbr / 16;
 	}
-	if(flags.tag)
+	if (flags.tag)
 		size += 2;
 	return (str[size] = '\0', rev_str(str), size);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_bonus.c                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 18:40:14 by mdakni            #+#    #+#             */
-/*   Updated: 2024/11/28 12:09:05 by mdakni           ###   ########.fr       */
+/*   Created: 2024/12/02 16:08:21 by mdakni            #+#    #+#             */
+/*   Updated: 2024/12/02 16:14:21 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	perc_flags(va_list args, const char **content)
 {
-	flags flagsss;
+	t_flags	flagsss;
 
-	flagsss = (flags){0};
+	flagsss = (t_flags){0};
 	*(content) = *(content) + 1;
 	flagsss = flag_check(content, flagsss);
 	if (**content == 'c')
